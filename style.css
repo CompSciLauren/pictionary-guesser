@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+.leftColumn {
+  float: left;
+  width: 25%;
+  padding: 10px;
+  height: 100vh;
+}
+
+.rightColumn {
+  float: left;
+  width: 75%;
+  padding: 10px;
+  height: 100vh;
+}
+
+.row:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+input[type='number'] {
+  width: 50px;
+}
+
+#submit {
+  display: block;
+}

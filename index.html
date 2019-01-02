@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Pictionary Guesser</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="pictionary-guesser.js"></script>
+  </head>
+  <body>
+    <div class="row">
+      <div class="leftColumn" style="background-color:silver">
+        <h2>Information</h2>
+        <form>
+          Number of Letters:
+          <input type="number" id="number-of-letters-input" size="2" />
+          <button type="submit" id="submit">Submit</button>
+        </form>
+      </div>
+      <div class="rightColumn" style="background-color:whitesmoke">
+        <h2>Possible Words</h2>
+        <ul id="words-container"></ul>
+      </div>
+    </div>
+  </body>
+</html>
