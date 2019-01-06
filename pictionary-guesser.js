@@ -16,19 +16,47 @@ $(document).ready(function() {
     'archery',
   ];
 
-  let randomWordSelector = Math.floor(Math.random() * words.length);
-  let currentWord = words[randomWordSelector]; // this is to help test code, later the user will have to input known information and actual word will not be known
+  $('#number-of-letters-input').on('input', function(event) {
+    addWordsByLetterCount(words);
+  });
 
+  $('#hint-1-input').on('input', function(event) {
+    addWordsByLetterCount(words);
+  });
+
+  $('#hint-1-position-input').on('input', function(event) {
+    addWordsByLetterCount(words);
+  });
+
+  $('#reset').on('click', function(event) {
+    $(this)
+      .closest('form')
+      .find('input, textarea')
+      .val('');
+    addWordsByLetterCount(words);
+  });
+});
+
+function addWordsByLetterCount(words) {
+  $('#words-container').empty();
+  let wordLength = parseInt($('#number-of-letters-input').val());
   for (let i = 0; i < words.length; i++) {
     let wordElement = $('<li>');
     wordElement.text(words[i]);
-    if (currentWord.length === words[i].length) {
-      $('#words-container').append(wordElement);
+    if (wordLength === words[i].length) {
+      if (
+        $('#hint-1-input').val() !== '' &&
+        $('#hint-1-position-input').val() !== ''
+      ) {
+        if (
+          $('#hint-1-input').val() ===
+          words[i].charAt(parseInt($('#hint-1-position-input').val() - 1))
+        ) {
+          $('#words-container').append(wordElement);
+        }
+      } else {
+        $('#words-container').append(wordElement);
+      }
     }
   }
-  $('#submit').on('click', function(event) {
-    //event.preventDefault(); prevents default event behavior like refreshing the page
-    console.log('sup!');
-    console.log(currentWord);
-  });
-});
+}
